@@ -46,15 +46,13 @@ class TweetData:
             
         for item in self.subjectivity:
             self.subjectivity[item] = self.subjectivity.get(item) / self.dates.get(item)
-        
-        with open('client_app/static/data/location_data.csv', 'w+', encoding="utf8") as f:
-            f.write("name,number" + '\n')
-            for item in self.place:
-                clean_data = item
-                if clean_data == "United States":
-                    clean_data = "United States of America"
-                
-                f.write(clean_data + "," + str(self.place.get(clean_data)) + '\n')
+            
+        for item in self.place:
+            clean_data = item
+            if clean_data == "United States":
+                clean_data = "United States of America"
+            
+            self.place[clean_data] = self.place.get(clean_data, 0) + 1
                 
         
         print("Finishing Data Read")
