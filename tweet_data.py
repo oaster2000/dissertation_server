@@ -8,9 +8,9 @@ class TweetData:
         self.dates = dict()
         self.polarity = dict()
         self.subjectivity = dict()
-        self.place_by_day = dict()
         self.place = dict()
         self.topic = dict()
+        self.place_by_topic = dict()
         
         count = 0
         print("Starting Data Read")
@@ -36,9 +36,9 @@ class TweetData:
                     
                     self.topic[row[10]] = self.topic.get(row[10], 0) + 1
                     
-                    _places = self.place_by_day.get(row[2], dict())
+                    _places = self.place_by_topic.get(row[10], dict())
                     _places[row[4]] = _places.get(row[4], 0) + 1
-                    self.place_by_day[row[2]] = _places
+                    self.place_by_topic[row[10]] = _places
                     
         for item in self.polarity:
             self.polarity[item] = self.polarity.get(item) / self.dates.get(item)
@@ -56,4 +56,4 @@ class TweetData:
         
         print("Finishing Data Read")
                 
-        print(str(self.tweet_count) + " / " +  str(count))
+        print(str(self.tweet_count) + " tweets avaliable.")

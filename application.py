@@ -37,5 +37,9 @@ def topic():
 def place():
     return jsonify(app.tweet_data.place)
 
+@app.route("/place-topic", methods=['GET'])
+def place():
+    return jsonify(app.tweet_data.place_by_topic)
+
 if __name__ == '__main__':
         app.run(host="0.0.0.0", debug=True, use_reloader=False)
