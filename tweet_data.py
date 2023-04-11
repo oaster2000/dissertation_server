@@ -41,6 +41,10 @@ class TweetData:
                     _places[row[4]] = _places.get(row[4], 0) + 1
                     self.place_by_topic[row[10]] = _places
                     
+                    _topic_date = self.topic_by_date.get(row[2], dict())
+                    _topic_date[row[10]] = _topic_date.get(row[10], 0) + 1
+                    self.topic_by_date[row[2]] = _topic_date
+                    
         for item in self.polarity:
             self.polarity[item] = self.polarity.get(item) / self.dates.get(item)
             
