@@ -12,10 +12,9 @@ class TweetData:
         self.place = dict()
         self.topic = dict()
         
-        #for x in range(1, 16):
         count = 0
         print("Starting Data Read")
-        with open('server_app/assets/training_data.csv', 'r+', encoding="utf8") as file:
+        with open('/home/oaster/dissertation_server/assets/training_data.csv', 'r+', encoding="utf8") as file:
                 reader = csv.reader((x.replace('\0', '') for x in file), delimiter='␟')
                 headers = next(reader)
                 for row in reader:
