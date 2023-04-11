@@ -14,6 +14,7 @@ class TweetData:
         
         #for x in range(1, 16):
         count = 0
+        print("Starting Data Read")
         with open('server_app/assets/training_data.csv', 'r+', encoding="utf8") as file:
                 reader = csv.reader((x.replace('\0', '') for x in file), delimiter='␟')
                 headers = next(reader)
@@ -54,5 +55,8 @@ class TweetData:
                     clean_data = "United States of America"
                 
                 f.write(clean_data + "," + str(self.place.get(clean_data)) + '\n')
+                
+        
+        print("Finishing Data Read")
                 
         print(str(self.tweet_count) + " / " +  str(count))
