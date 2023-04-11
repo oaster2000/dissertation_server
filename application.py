@@ -41,5 +41,9 @@ def place():
 def placeTopic():
     return jsonify(app.tweet_data.place_by_topic)
 
+@app.route("/topic-date", methods=['GET'])
+def topicDate():
+    return jsonify(app.tweet_data.topic_by_date)
+
 if __name__ == '__main__':
         app.run(host="0.0.0.0", debug=True, use_reloader=False)

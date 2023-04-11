@@ -11,6 +11,7 @@ class TweetData:
         self.place = dict()
         self.topic = dict()
         self.place_by_topic = dict()
+        self.topic_by_date = dict()
         
         count = 0
         print("Starting Data Read")
